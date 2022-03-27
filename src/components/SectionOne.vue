@@ -9,7 +9,7 @@
           <h2>Let's add something to your fridge!</h2>
 
           <div class="input-group">
-            <input type="search" id="search" placeholder="Look for food">
+            <input @keyup.enter="searching()" v-model.trim="userSearch" type="search" id="search" placeholder="Look for food">
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
           </div>
           
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import {mapGetters, mapActions} from 'vuex';
 import Fridge from '@/components/Fridge'
 
 export default {
@@ -26,6 +27,21 @@ name:'SectionOne',
 components: {
     Fridge,
   },
+data(){
+return{
+    userSearch : "",
+}
+},
+created(){
+    this.fetchFood();
+},
+methods:{
+    ...mapActions(['fetchFood']),
+    searching(){
+        this.fetchFood(this.userSearch)
+    }
+},
+computed:mapGetters(['allFood']),
 }
 </script>
 
