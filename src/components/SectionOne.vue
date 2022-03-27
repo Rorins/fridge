@@ -13,6 +13,12 @@
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
           </div>
           
+          <div v-for='(food,index) in allFood' :key="`food-${index}`">
+          <Card
+          :name='food.name'
+          :image='food.image'
+           />
+          </div>  
       </div>
 
   </section>
@@ -20,12 +26,14 @@
 
 <script>
 import {mapGetters, mapActions} from 'vuex';
-import Fridge from '@/components/Fridge'
+import Fridge from '@/components/Fridge';
+import Card from '@/components/Card';
 
 export default {
 name:'SectionOne',
 components: {
     Fridge,
+    Card
   },
 data(){
 return{
