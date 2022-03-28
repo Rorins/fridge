@@ -18,7 +18,7 @@
           <Card 
           :name='food.name'
           :image='food.image'
-          @click.native="ADD_FRIDGE(food.name)"
+          @click.native="addFridge(food.name)"
            />
           </div>  
 
@@ -46,7 +46,7 @@ return{
 }
 },
 methods:
-mapActions(['fetchFood','ADD_FRIDGE']),
+mapActions(['fetchFood','addFridge']),
 // {
 //     searching(){
 //         this.$store.dispatch('fetchFood',this.userSearch)

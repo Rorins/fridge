@@ -15,7 +15,21 @@ const getters = {
 //return count
 const mutations = {
     SET_FOOD: (state,food) => (state.food = food),
-    UPDATE_CART_ITEMS: (state,name) => console.log(name)
+    UPDATE_FRIDGE: function (state,name){
+        for (let i=0; i<state.fridge.length; i++){
+            if (name === state.fridge[i].foodName){
+                state.fridge[i].qty++
+                return
+            }
+        }
+        
+        state.fridge.push({
+            foodName: name,
+            qty: 1,
+        })
+
+        console.log(state.fridge)
+        }
 };
 
 // change state(access state like methods) actions call mutations
@@ -33,8 +47,8 @@ const actions = {
         //calling set_food which accepts state and food which is the response
         commit('SET_FOOD',response.data.results)
     },
-    ADD_FRIDGE({commit}, name){
-        commit('UPDATE_CART_ITEMS',name)
+    addFridge({commit}, name){
+        commit('UPDATE_FRIDGE',name)
     }
 };
 
