@@ -52,7 +52,8 @@ mapActions(['fetchFood','addFridge']),
 //         this.$store.dispatch('fetchFood',this.userSearch)
 //     }
 // },
-computed:mapGetters(['allFood']),
+computed:
+mapGetters(['allFood']),
 }
 </script>
 

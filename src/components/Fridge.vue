@@ -1,10 +1,12 @@
 <template>
 
  <div class="fridge">
-    <img src="../assets/fridge.png" alt="Frige">
+    <img src="../assets/fridge.png" alt="Fridge">
     
     <div class="fridge-content">
-    
+    <div  v-for='(element,index) in fridgeContent' :key="`food-${index}`">
+        <h2>{{element.foodName}}</h2>
+    </div>
     </div>
 
  </div> 
@@ -12,9 +14,11 @@
 </template>
 
 <script>
-
+import {mapGetters} from 'vuex';
 export default {
 name:'Fridge',
+computed:
+mapGetters(['fridgeContent']),
 }
 </script>
 
@@ -22,17 +26,11 @@ name:'Fridge',
 .fridge{
     position:relative;
     .fridge-content{
-    position: absolute;
+    position:absolute;
     top:40%;
     left:30%;
-    width:200px;
-    height:200px;
     background-color:rgba(197, 197, 255, 0.747);
-    opacity:0;
-    &:hover{
-    cursor:pointer;
     opacity:1;
-    }
 }
 }
 
