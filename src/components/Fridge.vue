@@ -4,8 +4,9 @@
     <img src="../assets/fridge.png" alt="Fridge">
     
     <div class="fridge-content">
-    <div  v-for='(element,index) in fridgeContent' :key="`food-${index}`">
+    <div v-for='(element,index) in fridgeContent' :key="`food-${index}`">
         <h2>{{element.foodName}}</h2>
+        <h2 @click="removeFridge(index)">{{element.qty}}</h2>
     </div>
     </div>
 
@@ -14,9 +15,11 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import {mapGetters,mapActions} from 'vuex';
 export default {
 name:'Fridge',
+methods:
+mapActions(['removeFridge']),
 computed:
 mapGetters(['fridgeContent']),
 }

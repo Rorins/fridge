@@ -17,11 +17,10 @@ const getters = {
 const mutations = {
     SET_FOOD: (state,food) => (state.food = food),
     
-    UPDATE_FRIDGE: function (state,name){
+    ADDING_FRIDGE: function (state,name){
         for (let i=0; i<state.fridge.length; i++){
             if (name === state.fridge[i].foodName){
                 state.fridge[i].qty++
-                console.log(state.fridge)
                 return
             }
         }
@@ -31,9 +30,18 @@ const mutations = {
             qty: 1,
         })
 
-        console.log(state.fridge)
         return
+        },
+
+    REMOVING_FRIDGE: function (state,index){
+        if(state.fridge[index].qty <= 1){
+            state.fridge.splice(index,1)
+        } else {
+            state.fridge[index].qty--
         }
+            
+    }
+   
 };
 
 // change state(access state like methods) actions call mutations
@@ -52,7 +60,10 @@ const actions = {
         commit('SET_FOOD',response.data.results)
     },
     addFridge({commit}, name){
-        commit('UPDATE_FRIDGE',name)
+        commit('ADDING_FRIDGE',name)
+    },
+    removeFridge({commit},index){
+        commit('REMOVING_FRIDGE',index)
     }
 };
 
