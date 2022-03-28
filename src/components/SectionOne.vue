@@ -14,10 +14,11 @@
           </div>
           
           <section class="card-list">
-          <div @click="ADD_FRIDGE()" v-for='(food,index) in allFood' :key="`food-${index}`">
+          <div  v-for='(food,index) in allFood' :key="`food-${index}`">
           <Card 
           :name='food.name'
           :image='food.image'
+          @click.native="ADD_FRIDGE(food.name)"
            />
           </div>  
 
