@@ -14,12 +14,13 @@
           </div>
           
           <section class="card-list">
-          <div v-for='(food,index) in allFood' :key="`food-${index}`">
-          <Card @click="Addfood()"
+          <div @click="ADD_FRIDGE()" v-for='(food,index) in allFood' :key="`food-${index}`">
+          <Card 
           :name='food.name'
           :image='food.image'
            />
           </div>  
+
           </section>
 
       </div>
@@ -44,10 +45,7 @@ return{
 }
 },
 methods:
-mapActions([('fetchFood')]),
-AddFood(){
-    this.$store.dispatch('Addfood')
-},
+mapActions(['fetchFood','ADD_FRIDGE']),
 // {
 //     searching(){
 //         this.$store.dispatch('fetchFood',this.userSearch)
