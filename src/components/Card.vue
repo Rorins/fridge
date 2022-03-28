@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="card">
       <h3>{{name}}</h3>
-      <img :src="`https://spoonacular.com/cdn/ingredients_100x100/${image}`" alt="">
+      <div class="image">
+           <img :src="`https://spoonacular.com/cdn/ingredients_100x100/${image}`" :alt="name">
+      </div>
   </div>
 </template>
 
@@ -15,6 +17,19 @@ image: String,
 }
 </script>
 
-<style>
-
+<style scoped lang="scss">
+.card{
+    margin:2px;
+    border:1px solid black;
+    height:150px;
+    width:150px;
+    text-align:center;
+    &:hover{
+        cursor:pointer;
+    }
+    .image{
+        display:flex;
+        justify-content:center;
+    }
+}
 </style>

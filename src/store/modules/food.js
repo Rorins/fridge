@@ -4,17 +4,18 @@ const state = {
     food: []
 };
 
-// get food array content from state(like methods updrates state)
+
+//first property state, returns our list of food(getting things from state and returning value)
 const getters = {
     allFood: state => state.food
 };
 
 // takes array from actions and adds to state(commit and track state changes)
 const mutations = {
-    setFood: (state,food) => (state.food = food)
+    SET_FOOD: (state,food) => (state.food = food)
 };
 
-// change state(access state like computed) actions call mutations
+// change state(access state like methods) actions call mutations
 const actions = {
     async fetchFood({commit},userSearch){
         const response = await axios.get(
@@ -26,7 +27,7 @@ const actions = {
             }
             
         );
-        commit('setFood',response.data.results)
+        commit('SET_FOOD',response.data.results)
     },
 };
 

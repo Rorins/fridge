@@ -9,23 +9,26 @@
           <h2>Let's add something to your fridge!</h2>
 
           <div class="input-group">
-            <input @keyup.enter="searching()" v-model.trim="userSearch" type="search" id="search" placeholder="Look for food">
+            <input @keyup.enter="fetchFood(userSearch)" v-model.trim="userSearch" type="search" id="search" placeholder="Look for food">
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
           </div>
           
+          <section class="card-list">
           <div v-for='(food,index) in allFood' :key="`food-${index}`">
-          <Card
+          <Card @click="Addfood()"
           :name='food.name'
           :image='food.image'
            />
           </div>  
+          </section>
+
       </div>
 
   </section>
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex';
+import {mapActions,mapGetters} from 'vuex';
 import Fridge from '@/components/Fridge';
 import Card from '@/components/Card';
 
@@ -43,12 +46,13 @@ return{
 created(){
     this.fetchFood();
 },
-methods:{
-    ...mapActions(['fetchFood']),
-    searching(){
-        this.fetchFood(this.userSearch)
-    }
-},
+methods:
+mapActions([('fetchFood')]),
+// {
+//     searching(){
+//         this.$store.dispatch('fetchFood',this.userSearch)
+//     }
+// },
 computed:mapGetters(['allFood']),
 }
 </script>
@@ -65,6 +69,12 @@ section{
         border-radius:20px;
         border:1px solid rgb(177, 177, 177);
         padding:5px;
+    }
+    .card-list{
+        display:flex;
+        flex-wrap:wrap;
+        width:600px;
+        height:400px;
     }
 }
 </style>
