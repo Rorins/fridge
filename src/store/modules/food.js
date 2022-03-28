@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const state = {
-    food: []
+    food: [],
+    count:0,
 };
 
 
@@ -12,7 +13,10 @@ const getters = {
 
 // takes array from actions and adds to state(commit and track state changes)
 const mutations = {
-    SET_FOOD: (state,food) => (state.food = food)
+    SET_FOOD: (state,food) => (state.food = food),
+    Addfood(state){
+        state.count ++
+    }
 };
 
 // change state(access state like methods) actions call mutations
@@ -27,6 +31,7 @@ const actions = {
             }
             
         );
+        //calling set_food which accepts state and food which is the response
         commit('SET_FOOD',response.data.results)
     },
 };

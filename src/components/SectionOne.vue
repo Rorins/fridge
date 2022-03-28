@@ -43,11 +43,11 @@ return{
     userSearch : "",
 }
 },
-created(){
-    this.fetchFood();
-},
 methods:
 mapActions([('fetchFood')]),
+AddFood(){
+    this.$store.dispatch('Addfood')
+},
 // {
 //     searching(){
 //         this.$store.dispatch('fetchFood',this.userSearch)
