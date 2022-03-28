@@ -73,7 +73,7 @@ section{
     .card-list{
         display:flex;
         flex-wrap:wrap;
-        width:600px;
+        width:700px;
         height:400px;
     }
 }
