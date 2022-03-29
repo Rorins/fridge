@@ -6,6 +6,10 @@
            <img v-if="image === 'no.jpg'" :alt="name">
            <img v-else :src="`https://spoonacular.com/cdn/ingredients_100x100/${image}`" :alt="name">
       </div>
+
+      <div class="hover">
+          <i class="fa-solid fa-circle-plus"></i>
+      </div>
   </div>
 </template>
 
@@ -26,8 +30,12 @@ image: String,
     height:150px;
     width:220px;
     text-align:center;
+    position:relative;
     &:hover{
         cursor:pointer;
+    }
+    &:hover .hover{
+        display:block;
     }
     .content-box{
         h3{
@@ -40,6 +48,28 @@ image: String,
         align-items:center;
         background-color:white;
         border-radius:20px;
+    }
+    .hover{
+        background-color:rgba(0, 0, 0, 0.089);
+        position:absolute;
+        width:100%;
+        height:100%;
+        border-radius:20px;
+        z-index:1;
+        top:0px;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        display:none;
+        .fa-circle-plus{
+            font-size:35px;
+            position:absolute;
+            top:60px;
+            left:90px;
+            color:green;
+            background-color:white;
+            border-radius:20px;
+        }
     }
 }
 </style>

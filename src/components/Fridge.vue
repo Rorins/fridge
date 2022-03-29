@@ -70,6 +70,7 @@ mapGetters(['fridgeContent']),
         .fa-circle-minus{
             color:#424266;
             padding:10px;
+            color:rgb(196, 65, 65);
         }
         h2{
             padding-left:60%;
