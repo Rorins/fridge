@@ -1,16 +1,20 @@
 <template>
   <section class="container">
 
+      <!--FRIDGE-->
       <div class="fridge">
       <Fridge/>
       </div>
       
-      <div>
+      <!--FOOD CARDS SECTION-->
+      <div class="text-center">
           <h2>Let's add something to your fridge!</h2>
 
-          <div class="input-group">
+          <div class="flex-center">
+            <div class="input-group">
             <input @keyup.enter="fetchFood(userSearch)" v-model.trim="userSearch" type="search" id="search" placeholder="Look for food">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
           </div>
           
           <section class="card-list">
@@ -58,23 +62,36 @@ mapGetters(['allFood']),
 </script>
 
 <style scoped lang="scss">
+// SEARCH
 section{
     display:flex;
     .input-group{
-        margin-top:20px;
+        margin:20px 20px;
         display:flex;
         justify-content:center;
-    }
-    #search{
+        background-color:white;
+        width:200px;
+        border-radius:20px;
+        padding:5px;
+        border:1px solid #aaa1a1;
+        #search{
         border-radius:20px;
         border:1px solid rgb(177, 177, 177);
-        padding:5px;
+        border:none;
+        outline:none;
+        .fa-magnifying-glass{
+            color:gray;
+        }
+    }
+    //CARDS
     }
     .card-list{
         display:flex;
         flex-wrap:wrap;
-        width:700px;
+        padding:40px;
+        width:800px;
         height:400px;
+        overflow-y:auto;
     }
 }
 </style>

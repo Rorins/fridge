@@ -1,8 +1,10 @@
 <template>
+<!--CARD COMPONENT-->
   <div class="card">
-      <h3>{{name}}</h3>
-      <div class="image">
-           <img :src="`https://spoonacular.com/cdn/ingredients_100x100/${image}`" :alt="name">
+      <div class="content-box">
+           <h3>{{name}}</h3>
+           <img v-if="image === 'no.jpg'" :alt="name">
+           <img v-else :src="`https://spoonacular.com/cdn/ingredients_100x100/${image}`" :alt="name">
       </div>
   </div>
 </template>
@@ -18,21 +20,26 @@ image: String,
 </script>
 
 <style scoped lang="scss">
+//CARD
 .card{
-    margin:2px;
-    border:1px solid black;
+    margin:5px;
     height:150px;
-    width:200px;
+    width:220px;
     text-align:center;
     &:hover{
         cursor:pointer;
     }
-    .image{
+    .content-box{
+        h3{
+            padding:8px;
+        }
         display:flex;
         width:100%;
         height:100%;
         justify-content:center;
         align-items:center;
+        background-color:white;
+        border-radius:20px;
     }
 }
 </style>

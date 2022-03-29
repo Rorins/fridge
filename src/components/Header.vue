@@ -16,7 +16,7 @@ name:'Header'
 header{
   h1{
     text-align:center;
-    margin:20px;
+    margin:40px;
   }
 }
 </style>
