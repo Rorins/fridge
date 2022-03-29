@@ -33,7 +33,6 @@ const mutations = {
             qty: 1,
         })
 
-        return
         },
 
     REMOVING_FRIDGE: (state,index) =>{
