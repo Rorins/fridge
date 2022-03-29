@@ -8,11 +8,11 @@
     <h1>Check inside me</h1>
 
     <div class="fridge-content">
-    <div class="padding-5" v-for='(element,index) in fridgeContent' :key="`food-${index}`">
-        <h2 class="name">{{element.foodName}}</h2>
+    <div class="padding-5" v-for='(food,index) in fridgeContent' :key="`food-${index}`">
+        <h2 class="name">{{food.foodName}}</h2>
 
         <div class="quantity-details">
-        <h2>qty:{{element.qty}}</h2>
+        <h2>qty:{{food.qty}}</h2>
         <i @click="removeFridge(index)" class="fa-solid fa-circle-minus"></i>
         </div>
     </div>
@@ -52,7 +52,7 @@ mapGetters(['fridgeContent']),
     top:40%;
     left:30%;
     opacity:0;
-    width:250px;
+    width:270px;
     height:300px;
     background-color:#93c5c7bf;
     border:2px solid  #edf7ff66;

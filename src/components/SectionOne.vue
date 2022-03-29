@@ -18,7 +18,7 @@
           </div>
           
           <section class="card-list">
-          <div  v-for='(food,index) in allFood' :key="`food-${index}`">
+          <div v-for='(food,index) in selectedFood' :key="`food-${index}`">
           <Card 
           :name='food.name'
           :image='food.image'
@@ -57,7 +57,7 @@ mapActions(['fetchFood','addFridge']),
 //     }
 // },
 computed:
-mapGetters(['allFood']),
+mapGetters(['selectedFood']),
 }
 </script>
 
