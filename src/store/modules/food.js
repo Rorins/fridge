@@ -4,6 +4,7 @@ const state = {
     food: [],
     fridge: [],
     recipes: [],
+    recipeIngredients: [],
 };
 
 
@@ -12,6 +13,7 @@ const getters = {
     selectedFood: state => state.food,
     fridgeContent: state => state.fridge,
     recipeContent: state => state.recipes,
+    recipeIngredients: state =>state.recipeIngredients,
 };
 
 // takes array from actions and adds to state(commit and track state changes)
@@ -19,6 +21,7 @@ const getters = {
 const mutations = {
     SET_FOOD: (state,food) => (state.food = food),
     SET_RECIPE:(state,recipe) => (state.recipes = recipe),
+    SET_INGREDIENT_RECIPE:(state,ingredient_recipe) => (state.recipeIngredients = ingredient_recipe),
     
     ADDING_FRIDGE: (state,name) =>{
         for (let i=0; i<state.fridge.length; i++){
@@ -70,10 +73,24 @@ const actions = {
             }
             
         );
-        console.log(response.data.recipes)
         //calling set_food which accepts state and food which is the response
         commit('SET_RECIPE',response.data.recipes)
     },
+    async fetchIngredientRecipe({commit},ingredient){
+        const response = await axios.get(
+            'https://api.spoonacular.com/recipes/findByIngredients',{
+                params:{
+                    apiKey: '52a6493881d94b50b5fba1b8f6929642',
+                    ingredients: ingredient,
+                }
+            }
+            
+        );
+        console.log(response.data)
+        //calling set_food which accepts state and food which is the response
+        commit('SET_INGREDIENT_RECIPE',response.data)
+    },
+
     addFridge({commit}, name){
         commit('ADDING_FRIDGE',name)
     },
