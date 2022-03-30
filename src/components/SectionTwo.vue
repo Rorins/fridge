@@ -44,6 +44,9 @@ mapGetters(['recipeContent']),
 section{
     margin-top:40px;
     margin-bottom:40px;
+    h1{
+        font-size:30px;
+    }
 }
 .card{
     display:flex;

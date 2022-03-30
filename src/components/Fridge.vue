@@ -7,7 +7,9 @@
     <!--FRIDGE CONTENT-->
     <h1>Check inside me</h1>
 
-    <div class="fridge-content">
+    <div  class="fridge-content">
+
+    <div v-if="fridgeContent.length > 0">
     <div class="padding-5" v-for='(food,index) in fridgeContent' :key="`food-${index}`">
         <h2 class="name">{{food.foodName}}</h2>
 
@@ -16,6 +18,10 @@
         <i @click="removeFridge(index)" class="fa-solid fa-circle-minus"></i>
         </div>
     </div>
+    </div>
+
+    <h2 v-else>Empty</h2>
+
     </div>
 
  </div> 
