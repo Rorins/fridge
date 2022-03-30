@@ -20,7 +20,7 @@
     </div>
     </div>
 
-    <h2 v-else>I'm empty</h2>
+    <h2 class="empty" v-else>I'm empty</h2>
 
     </div>
 
@@ -56,7 +56,7 @@ mapGetters(['fridgeContent']),
     .fridge-content{
     position:absolute;
     top:40%;
-    left:30%;
+    left:28%;
     opacity:0;
     width:270px;
     height:300px;
@@ -91,8 +91,9 @@ mapGetters(['fridgeContent']),
         color:#424266;
     }
 }
-h2{
-    padding:50px;
+.empty{
+    padding:40px;
+    color:#424266;
 }
 }
 
