@@ -1,10 +1,11 @@
 <template>
   <section class="container">
+      <section class="recommended-recipe">
       <h1 class="text-center">Recipe of the day</h1>
       
           <div v-for='(recipe,index) in recipeContent' :key="`recipe-${index}`">
 
-              <div class="card">
+              <div class="first-card">
               <div class="left-card">
               <h2>{{recipe.title}}</h2>
               <img :src="recipe.image" :alt="recipe.title">
@@ -21,26 +22,49 @@
 
           </div>
       </div> 
+      </section>
       
+      <!--RECIPES BASED ON FRIDGE INGREDIENTS-->
       <h2>Don't waste food! Try making recipes based on ingredients in your fridge!</h2>
+      
+      <!--CHECKBOX BASED ON FRIDGE-->
+      <section v-if="fridgeContent.length > 0">
 
-      <section>
-          
       <div class="checkbox-list">
       <div v-for='(food,index) in fridgeContent' :key="`food-${index}`">
+
           <input @change="fetchIngredientRecipe(food.foodName)" type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
           <label for="vehicle1">{{food.foodName}}</label><br>
+
       </div>
+
       </div>
       
-      <h1>Here are some interesting recipes for you:</h1>
+      <!--RECOMMENDED RECIPES BASED ON INGREDIENTS-->
+      <h1 class="text-center">Here are some interesting recipes for you:</h1>
 
       <div class="recipe-list">
       <div v-for='(recipe,index) in recipeIngredients' :key="`recipe-ingredient-${index}`">
+
+          <div class="second-card">
+
+          <div class="title">
           <h2>{{recipe.title}}</h2>
+          </div>
+
+          <div class="image-box">
           <img :src="recipe.image" :alt="recipe.title">
+          </div>
+
+          </div>
+
       </div>
       </div>
+
+      </section>
+
+      <section v-else>
+          <h2>If you want to see some recipes try filling the fridge first</h2>
       </section>
 
   </section>
@@ -68,7 +92,7 @@ section{
     h1{
         font-size:30px;
     }
-    .card{
+    .first-card{
     display:flex;
     h2{
         padding:20px;
@@ -84,6 +108,39 @@ section{
 }
 .recipe-list{
     display:flex;
+    flex-wrap:wrap;
+    height:300px;
+    overflow-y:auto;
+    justify-content:center;
+    margin-top:30px;
+    .second-card{
+        width:450px;
+        margin:20px;
+        display:flex;
+        background-color:white;
+        border-radius:20px;
+        padding:20px;
+        .title{
+            width:50%;
+            display:flex;
+            align-items:center;
+            h2{
+                font-size:20px;
+                margin-left:10px;
+                margin-right:10px;
+            }
+        }
+        .image-box{
+            width:50%;
+            height:200px;
+            img{
+                width:100%;
+                height:100%;
+                object-fit:cover;
+                border-radius:30px;
+            }
+        }
+    }
 }
 }
 
