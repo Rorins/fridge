@@ -55,7 +55,7 @@ const actions = {
         const response = await axios.get(
             'https://api.spoonacular.com/food/ingredients/search',{
                 params:{
-                    apiKey: '52a6493881d94b50b5fba1b8f6929642',
+                    apiKey: 'fedc40b54f0847b69a0b62e91ca7612a',
                     query: userSearch
                 }
             }
@@ -68,7 +68,7 @@ const actions = {
         const response = await axios.get(
             'https://api.spoonacular.com/recipes/random',{
                 params:{
-                    apiKey: '52a6493881d94b50b5fba1b8f6929642',
+                    apiKey: 'fedc40b54f0847b69a0b62e91ca7612a',
                 }
             }
             
@@ -80,7 +80,7 @@ const actions = {
         const response = await axios.get(
             'https://api.spoonacular.com/recipes/findByIngredients',{
                 params:{
-                    apiKey: '52a6493881d94b50b5fba1b8f6929642',
+                    apiKey: 'fedc40b54f0847b69a0b62e91ca7612a',
                     ingredients: ingredient,
                 }
             }
