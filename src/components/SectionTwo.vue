@@ -1,5 +1,6 @@
 <template>
   <section class="container">
+      <!--RECOMMENDED RECIPE OF THE DAY-->
       <section class="recommended-recipe">
       <h1 class="text-center">Recipe of the day</h1>
       
@@ -25,7 +26,7 @@
       </section>
       
       <!--RECIPES BASED ON FRIDGE INGREDIENTS-->
-      <h2>Don't waste food! Try making recipes based on ingredients in your fridge!</h2>
+      <h1 class="text-center">Don't waste food! Try making recipes based on ingredients in your fridge!</h1>
       
       <!--CHECKBOX BASED ON FRIDGE-->
       <section v-if="fridgeContent.length > 0">
@@ -33,8 +34,8 @@
       <div class="checkbox-list">
       <div v-for='(food,index) in fridgeContent' :key="`food-${index}`">
 
-          <input @change="fetchIngredientRecipe(food.foodName)" type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-          <label for="vehicle1">{{food.foodName}}</label><br>
+          <input @change="fetchIngredientRecipe(food.foodName)" type="checkbox" id="food">
+          <label for="food">{{food.foodName}}</label><br>
 
       </div>
 
@@ -64,7 +65,7 @@
       </section>
 
       <section v-else>
-          <h2>If you want to see some recipes try filling the fridge first</h2>
+          <h2 class="text-center">If you want to see some recipes try filling the fridge first</h2>
       </section>
 
   </section>
@@ -88,7 +89,7 @@ mapGetters(['recipeContent','fridgeContent','recipeIngredients']),
 <style scoped lang="scss">
 section{
     margin-top:40px;
-    margin-bottom:40px;
+    margin-bottom:80px;
     h1{
         font-size:30px;
     }
@@ -104,6 +105,24 @@ section{
         display:flex;
         align-items:center;
         padding:20px;
+    }
+}
+.checkbox-list{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin:50px auto;
+    width:50%;
+    background-color:#ded7c8;
+    border-radius:20px;
+    padding:10px;
+    input{
+        accent-color:#a2a28d;
+    }
+    label{
+        font-size:20px;
+        margin-left:10px;
+        margin-right:10px;
     }
 }
 .recipe-list{
