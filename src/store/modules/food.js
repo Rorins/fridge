@@ -49,7 +49,7 @@ const mutations = {
    
 };
 
-// change state(access state like methods) actions call mutations, actions are the first ones
+// change state(access state like methods) actions call mutations, actions are the first
 const actions = {
     async fetchFood({commit},userSearch){
         const response = await axios.get(
